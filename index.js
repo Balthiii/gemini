@@ -1,20 +1,33 @@
 import "dotenv/config";
+import express from "express";
+import bodyParser from "body-parser";
+import path from "path";
+import { fileURLToPath } from "url";
+import chatbotRoutes from './routes/chatbotRoutes.js';
+import tunedRoutes from './routes/tunedRoutes.js';
 
-import { GoogleGenerativeAI } from "@google/generative-ai";
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
-import fs from "fs"; // Permet de lire/ecrire des fichiers
+const app = express();
 
-const genAI = new GoogleGenerativeAI(process.env.GOOGLE_API_KEY);
+// Configurer le moteur de vues et les fichiers statiques
+app.set('view engine', 'ejs');
+app.set('views', path.join(__dirname, 'views'));
 
-console.log("process.env.GOOGLE_API_KEY", process.env.GOOGLE_API_KEY);
+app.use(bodyParser.json());
+app.use(express.static(path.join(__dirname, "public")));
 
-async function run() {
-  const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
+// Définir les routes
+app.use(chatbotRoutes); 
+app.use('/', tunedRoutes); 
 
-  const prompt = "Comment vas-tu ?";
+app.get('/', (req, res) => {
+  res.render('index');
+});
 
-  const result = await model.generateContent(prompt);
 
-  console.log("voici le resultat: ", result.response.text());
-}
-run();
+app.listen(3000, () => {
+  console.log("Server is running on http://localhost:3000");
+});
+

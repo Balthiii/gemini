@@ -1,0 +1,45 @@
+{
+    "display_name": "color model",
+    "base_model": "models/gemini-1.0-pro-001",
+    "tuning_task": {
+        "hyperparameters": {
+            "batch_size": 2,
+            "learning_rate": 0.001,
+            "epoch_count": 5
+        },
+        "training_data": {
+            "examples": {
+                "examples": [
+                    {
+                        "text_input": "Quelle est la couleur du ciel quand il fait beau ?",
+                        "output": "Le ciel est bleu quand il fait beau."
+                    },
+                    {
+                        "text_input": "Quelle est la couleur du ciel quand il neige ?",
+                        "output": "La couleur du ciel est violet quand il neige"
+                    },
+                    {
+                        "text_input": "De quelle couleur est une banane mûre ?",
+                        "output": "Une banane mûre est jaune."
+                    },
+                    {
+                        "text_input": "Quelle couleur obtient-on en mélangeant du bleu et du jaune ?",
+                        "output": "En mélangeant du bleu et du jaune on obtient du vert."
+                    },
+                    {
+                        "text_input": "Quelle est la couleur des fraises ?",
+                        "output": "Les fraises sont rouges."
+                    },
+                    {
+                        "text_input": "De quelle couleur est une pomme Granny Smith ?",
+                        "output": "Une pomme Granny Smith est verte."
+                    },
+                    {
+                        "text_input": "Quelle est la couleur d'une maison ?",
+                        "output": "La couleur d'une maison est Blanche."
+                    }
+                ]
+            }
+        }
+    }
+}
