@@ -1,0 +1,97 @@
+@font-face {
+    font-family: 'proximaNovaMedium';
+    src: url('../fonts/ProximaNovaMedium.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'proximaNovaBold';
+    src: url('../fonts/ProximaNovaBold.woff') format('woff');
+}
+
+body {
+    font-family: 'proximaNovaMedium', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(0.25turn, #03132c, #051c41, #302d2d);
+    ;
+}
+
+.chat-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 600px;
+    height: 80vh;
+    margin: 0 auto;
+    background: linear-gradient(0.25turn, #03132c, #051c41, #302d2d);
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    position: relative;
+}
+
+#chat {
+    flex-grow: 1;
+    overflow-y: auto;
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.input-container {
+    display: flex;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 10px;
+    box-shadow: 0 -1px 5px rgba(0, 0, 0, 0.1);
+}
+
+input {
+    flex: 1;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #2c2c2c;
+    margin-right: 10px;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #0096d1;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #3a9ec5;
+}
+
+h1 {
+    font-size: 2rem;
+    color: #fff;
+    margin-bottom: 20px;
+    margin-left: 40px;
+    font-family: 'proximaNovaBold', sans-serif;
+}
+
+.message.user {
+    text-align: right;
+    color: white;
+    padding: 20px;
+    border-radius: 5px;
+    margin-bottom: 5px;
+    font-family: 'proximaNovaBold', sans-serif;
+}
+
+.message.bot {
+    text-align: left;
+    color: rgb(59, 165, 207);
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 5px;
+    border: 1px solid #ccc;
+    font-family: 'proximaNovaBold', sans-serif;
+}
